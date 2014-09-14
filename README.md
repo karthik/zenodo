@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ropensci/rzenodo.png?branch=master)](https://travis-ci.org/ropensci/rzenodo)
+
 # R interface to Zenodo
 
 Super early alpha at this time. Nothing really works yet.
