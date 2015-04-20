@@ -1,11 +1,9 @@
 
 
-zen_auth <- function(key = getOption("zenodo_key")) {
-	assert_that(!is.null(key))
-	browser()
-	api_url <- paste0("https://zenodo.org/api/deposit/depositions/?apikey=", key)
-	args <- compact(as.list(c(apikey = key)))
-	results <- GET(api_url)
-}
 
-zen_auth()
+zen_auth <- function(key = "", secret = "") {
+	# Once completed, this fn will allow for 
+	# automatic authentication.
+	# For now, it's just as easy to add a token 
+	# to one's R profile to use the remaining endpoints
+}
