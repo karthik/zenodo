@@ -3,6 +3,9 @@
 # R interface to Zenodo  
 ![zenodo_logo](https://zenodo.org/img/zenodo.svg)
 
+## What is Zenodo?
+Zenodo is an open dependable home for the long-tail of science, enabling researchers to share and preserve any research outputs in any size, any format and from any science.
+
 __Setup__
 * Sign up for [zenodo](https://zenodo.org/youraccount/register)
 * Log in and go your profile
