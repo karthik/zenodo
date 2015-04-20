@@ -1,8 +1,13 @@
 Package: rzenodo
-Title: What the package does (one line)
-Version: 0.1
-Authors@R: 'Karthik Ram <karthik.ram@gmail.com> [aut, cre]'
-Description: What the package does (one paragraph)
-Depends: R (>= 3.1.1)
-License: CC0
+Title: Programmatic Interface to the Zenodo Research Data Archive
+Version: 0.1.99
+Authors@R: person("Karthik", "Ram", , "karthik.ram@gmail.com", c("aut", "cre"))
+Description: A full interface to the Zenodo API, includes support for uploading your research outputs.
+Depends: R (>= 3.2)
+License: MIT + file LICENSE
 LazyData: true
+Imports:
+		assertthat,
+		dplyr,
+		httr,
+		jsonlite
