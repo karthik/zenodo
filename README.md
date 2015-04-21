@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/development-active-blue.svg)  [![Build Status](https://travis-ci.org/ropensci/zenodo.svg?branch=master)](https://travis-ci.org/ropensci/zenodo)
 
 # R interface to Zenodo  
-![zenodo_logo](https://zenodo.org/img/zenodo.svg)
+![zenodo_logo](https://zenodo.org/img/logos/zenodo-black-200.png)
 
 ## What is Zenodo?
 Zenodo is an open repository for scientific data based at CERN  in Swizerland. Zenodo facilitates researchers to share and preserve _any_ research outputs in any size, any format and from any science. Zenodo also mints DOIs.
