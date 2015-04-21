@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ropensci/rzenodo.png?branch=master)](https://travis-ci.org/ropensci/rzenodo)
+[![Build Status](https://travis-ci.org/ropensci/zenodo.svg?branch=master)](https://travis-ci.org/ropensci/zenodo)
 
 # R interface to Zenodo  
 ![zenodo_logo](https://zenodo.org/img/zenodo.svg)
