@@ -1,4 +1,4 @@
-Package: rzenodo
+Package: zenodo
 Title: Programmatic Interface to the Zenodo Research Data Archive
 Version: 0.1.99
 Authors@R: person("Karthik", "Ram", , "karthik.ram@gmail.com", c("aut", "cre"))
@@ -6,8 +6,10 @@ Description: A full interface to the Zenodo API, includes support for uploading 
 Depends: R (>= 3.2)
 License: MIT + file LICENSE
 LazyData: true
-Imports:
+Imports: 
 		assertthat,
+		data.table,
 		dplyr,
 		httr,
 		jsonlite
+Suggests: testthat

@@ -4,14 +4,14 @@
 ![zenodo_logo](https://zenodo.org/img/zenodo.svg)
 
 ## What is Zenodo?
-Zenodo is an open dependable home for the long-tail of science, enabling researchers to share and preserve any research outputs in any size, any format and from any science.
+Zenodo is an open repository for scientific data based at CERN  in Swizerland. Zenodo facilitates researchers to share and preserve _any_ research outputs in any size, any format and from any science. Zenodo also mints DOIs.
 
 __Setup__
 * Sign up for [zenodo](https://zenodo.org/youraccount/register)
 * Log in and go your profile
 * Click personal access tokens and grab one.
 
-Then add them to your `.rprofile` or source before running any script. Do not commit this to any public location as it is an application specific password to your account.
+Then add the following line to your `.rprofile`. You can also pass this explicitly to every function, but exposing the token will compromise your account.  
 
 ```r
 options(zenodo_token = "YOUR-KEY")
@@ -28,6 +28,13 @@ devtools::install_github("ropensci/rzenodo")
 
 | Function  | Description  |
 |---|---|
-| `zenodo_dir()` | Provides a `data.frame` with listing of current Zenodo research products
+| `zenodo_dir()` | Provides a `data.frame` with listing of current Zenodo collections.
+
+## Resources
+
+* The [full API documentation](https://zenodo.org/dev) for the Zenodo API.
+
+---
+
 
 [![ropensci_footer](http://ropensci.org/public_images/github_footer.png)](http://ropensci.org)

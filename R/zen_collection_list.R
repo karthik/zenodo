@@ -1,9 +1,13 @@
 
-#' List Zenodo products
+#' List Zenodo collections. 
 #'
-#' List all depositions for the currently authenticated user.
-#' @param acces_token Your Zenodo access token
+#' List all depositions for the currently authenticated user. Collections
+#' typically archive all outputs of a research project.
+#' @template access_token
 #' @export
+#' @examples \dontrun{
+#' my_collections <- zen_collections()
+#' }
 zen_collections <- function(access_token = getOption('zenodo_token')) {
 	dir_path <- "https://zenodo.org/api/deposit/depositions"
 	args <- as.list(c(access_token = access_token))
@@ -13,13 +17,3 @@ zen_collections <- function(access_token = getOption('zenodo_token')) {
 }
 
 
-#' Function abstracts out some standard functionality necessary to 
-#' handle \code{httr} responses.
-#' @noRd 
-#' @keywords Internal
-process_hitter_response <- function(response) {
-	res <- lapply(response, function(s) data.frame(t(unlist(s))))
-	# This could be improved so I don't end up relying on two
-	# libraries to do the job.
-	dplyr::tbl_df(data.table::rbindlist(res, fill = TRUE))
-}
