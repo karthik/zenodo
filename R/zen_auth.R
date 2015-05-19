@@ -6,4 +6,18 @@ zen_auth <- function(key = "", secret = "") {
   # automatic authentication.
   # For now, it's just as easy to add a token
   # to one's R profile to use the remaining endpoints
+
+#' Get Zenodo Personal Access Token (PAT)
+#'
+#' @description This will first check for R option \code{zenodo_token}. If that
+#'   does not exist then the environment variable ZENODO_PAT will be checked.
+#' @export
+zen_pat<-function () {
+  pat=getOption('zenodo_token', default = Sys.getenv("ZENODO_PAT"))
+  if (!isTRUE(nzchar(pat))) {
+    return(NULL)
+  }
+  # Leave this for debugging purposes - probably turn off later.
+  message("Using Zenodo PAT")
+  pat
 }
