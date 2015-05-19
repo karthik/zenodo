@@ -52,6 +52,21 @@ zen_fetch('api/deposit/depositions')
 # Get jsonlite to do some extra work on the result
 # see ?fromJSON for details
 zz=zen_fetch('api/deposit/depositions', parse_params = list(simplifyVector=TRUE))
+
+## You can also PUT
+# Here we take a sample JSON request  from the Zenodo API reference
+# https://zenodo.org/dev#restapi-res-dep
+json_request=paste0('{"metadata": {"title": "My first upload", "upload_type": "poster",',
+  ' "description": "This is my first upload", "creators": [{"name": "Doe, John",',
+  ' "affiliation": "Zenodo"}]}}')
+# see what corresponding R list would look like
+dput(fromJSON(d), control='useSource' )
+
+# now use that list as the body for a PUT
+body=list(metadata = list(title = "My first upload", upload_type = "poster",
+  description = "This is my first upload", creators = list(name = "Doe, John",
+    affiliation = "Zenodo")))
+zen_fetch('api/deposit/depositions', body=body)
 }
 }
 \seealso{
