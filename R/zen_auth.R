@@ -6,6 +6,9 @@ zen_auth <- function(key = "", secret = "") {
   # automatic authentication.
   # For now, it's just as easy to add a token
   # to one's R profile to use the remaining endpoints
+  stop("zen_auth is not yet implemented. ",
+       "See zen_pat to use a Zenodo Personal Access Token for authentication")
+}
 
 #' Get Zenodo Personal Access Token (PAT)
 #'
