@@ -2,8 +2,13 @@
 
 export(zen_collections)
 export(zen_create)
+export(zen_fetch)
 export(zen_pat)
 import(jsonlite)
 importFrom(assertthat,assert_that)
+importFrom(httr,GET)
 importFrom(httr,POST)
+importFrom(httr,config)
 importFrom(httr,content)
+importFrom(httr,stop_for_status)
+importFrom(httr,with_config)
