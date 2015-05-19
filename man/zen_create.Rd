@@ -4,7 +4,7 @@
 \alias{zen_create}
 \title{Create a collection on Zenodo}
 \usage{
-zen_create(collection_name = NULL, access_token = getOption("zenodo_token"))
+zen_create(collection_name = NULL, access_token = zen_pat())
 }
 \arguments{
 \item{collection_name}{Name of a new collection to be created on Zenodo}
