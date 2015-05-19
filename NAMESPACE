@@ -2,6 +2,7 @@
 
 export(zen_collections)
 export(zen_create)
+import(jsonlite)
 importFrom(assertthat,assert_that)
 importFrom(httr,POST)
 importFrom(httr,content)
