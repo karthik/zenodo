@@ -10,4 +10,8 @@ zen_pat()
 This will first check for R option \code{zenodo_token}. If that
   does not exist then the environment variable ZENODO_PAT will be checked.
 }
+\details{
+You can make a new Zenodo Personal Access Token at
+  \url{https://zenodo.org/account/settings/applications/}.
+}
 

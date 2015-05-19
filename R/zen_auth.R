@@ -14,6 +14,8 @@ zen_auth <- function(key = "", secret = "") {
 #'
 #' @description This will first check for R option \code{zenodo_token}. If that
 #'   does not exist then the environment variable ZENODO_PAT will be checked.
+#' @details You can make a new Zenodo Personal Access Token at
+#'   \url{https://zenodo.org/account/settings/applications/}.
 #' @export
 zen_pat<-function () {
   pat=getOption('zenodo_token', default = Sys.getenv("ZENODO_PAT"))
