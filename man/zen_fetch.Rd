@@ -5,7 +5,7 @@
 \title{http GET or POST request to Zenodo server using appropriate authentication}
 \usage{
 zen_fetch(path, body = NULL, parse.json = TRUE, include_headers = FALSE,
-  zen_auth_params = list(), ...)
+  zen_auth_params = list(), parse_params = list(), ...)
 }
 \arguments{
 \item{path}{The path on the zenodo server relative to the zenodo root}
@@ -22,6 +22,10 @@ as attributes on the parsed JSON object (default \code{FALSE}).}
 
 \item{zen_auth_params}{Named list of authentication parameters passed to
 zen_auth to override default authetication process.}
+
+\item{parse_params}{Named list of parameters passed to
+\code{httr::\link[httr]{content}} function and then most likely on to
+\code{jsonlite::\link[jsonlite]{fromJSON}}.}
 
 \item{...}{Additional arguments passed to the \code{httr::GET} or
 \code{httr::POST} function}
@@ -44,10 +48,14 @@ Authentication is presently handled by the \code{\link{zen_pat}}
 \dontrun{
 # Get list of depositions for current user
 zen_fetch('api/deposit/depositions')
+
+# Get jsonlite to do some extra work on the result
+# see ?fromJSON for details
+zz=zen_fetch('api/deposit/depositions', parse_params = list(simplifyVector=TRUE))
 }
 }
 \seealso{
 \code{\link{zen_pat}}, \code{\link[httr]{GET}},
-  \code{\link[httr]{POST}}
+  \code{\link[httr]{POST}}, \code{\link[jsonlite]{fromJSON}}
 }
 

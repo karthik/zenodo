@@ -21,6 +21,9 @@ zenodo_root<-function() "https://zenodo.org/"
 #'   as attributes on the parsed JSON object (default \code{FALSE}).
 #' @param zen_auth_params Named list of authentication parameters passed to
 #'   zen_auth to override default authetication process.
+#' @param parse_params Named list of parameters passed to
+#'   \code{httr::\link[httr]{content}} function and then most likely on to
+#'   \code{jsonlite::\link[jsonlite]{fromJSON}}.
 #' @param ... Additional arguments passed to the \code{httr::GET} or
 #'   \code{httr::POST} function
 #' @return When \code{parse.json=FALSE} an object of class \code{response}
@@ -28,15 +31,19 @@ zenodo_root<-function() "https://zenodo.org/"
 #'   as='parsed')} on the body of the response.
 #' @export
 #' @seealso \code{\link{zen_pat}}, \code{\link[httr]{GET}},
-#'   \code{\link[httr]{POST}}
+#'   \code{\link[httr]{POST}}, \code{\link[jsonlite]{fromJSON}}
 #' @importFrom httr GET POST content with_config config stop_for_status
 #' @examples
 #' \dontrun{
 #' # Get list of depositions for current user
 #' zen_fetch('api/deposit/depositions')
+#'
+#' # Get jsonlite to do some extra work on the result
+#' # see ?fromJSON for details
+#' zz=zen_fetch('api/deposit/depositions', parse_params = list(simplifyVector=TRUE))
 #' }
 zen_fetch<-function(path, body=NULL, parse.json=TRUE, include_headers=FALSE,
-                    zen_auth_params=list(), ...) {
+                    zen_auth_params=list(), parse_params=list(), ...) {
   pat=zen_pat()
   auth_config=list()
   if(is.null(pat)) {
@@ -59,7 +66,8 @@ zen_fetch<-function(path, body=NULL, parse.json=TRUE, include_headers=FALSE,
   # error out if there was a problem
   stop_for_status(req)
   if(parse.json) {
-    parsed=content(req, as='parsed')
+    parse_params[['as']]='parsed'
+    parsed=do.call(content, c(list(req), parse_params))
     if(include_headers) {
       fields_to_include=c("url", "headers")
       attributes(parsed) = c(attributes(parsed), req[fields_to_include])
