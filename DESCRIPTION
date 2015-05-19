@@ -6,10 +6,10 @@ Description: A full interface to the Zenodo API, includes support for uploading 
 Depends: R (>= 3.2)
 License: MIT + file LICENSE
 LazyData: true
-Imports: 
-		assertthat,
-		data.table,
-		dplyr,
-		httr,
-		jsonlite
+Imports:
+    assertthat,
+    data.table,
+    dplyr,
+    httr,
+    jsonlite
 Suggests: testthat
