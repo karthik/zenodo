@@ -13,6 +13,8 @@
 #' @param collection_name Name of a new collection to be created on Zenodo
 #' @template access_token
 #' @export
+#' @importFrom httr POST content
+#' @importFrom assertthat assert_that
 zen_create <- function(collection_name = NULL, access_token = getOption('zenodo_token')) {
   assert_that(!is.null(collection_name)) # no empty collection
   # TODO: Check to see if collection exists
