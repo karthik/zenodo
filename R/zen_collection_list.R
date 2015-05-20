@@ -11,8 +11,17 @@
 #' @seealso \code{\link{zen_fetch}}
 #' @examples \dontrun{
 #' my_collections <- zen_collections()
+#'
+#' library(dplyr)
 #' my_collections %>%
-#'   select(metadata.title, metadata.upload_type, metadata.doi, files.filename)
+#'   select(metadata.title, metadata.upload_type, metadata.doi, files.filename,
+#'     created)
+#'
+#' # example of parsing and plotting dates
+#' if(require(lubridate) && require(ggplot2)) {
+#'   my_collections <- mutate(my_collections, created=ymd_hms(created))
+#'   qplot(my_collections$created)
+#' }
 #' }
 zen_collections <- function(...) {
   request <- zen_fetch('api/deposit/depositions', ...)
