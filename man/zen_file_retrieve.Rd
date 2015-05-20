@@ -7,7 +7,7 @@
 zen_file_retrieve(deposition.id, file.id, ...)
 }
 \arguments{
-\item{deposition.id,file.id}{Zenodo ids for deposition and file}
+\item{deposition.id,file.id}{Zenodo ids for deposition and file (one or many)}
 
 \item{...}{Additional arguments passed to \code{\link{zen_fetch}} to define
 request, authorisation or parsing options.}
@@ -29,6 +29,11 @@ Retrieve file description for given deposition and file id
 \dontrun{
 # retrieve info for single file
 zen_file_retrieve(29766, "d98a9e02-c9df-4e4a-b643-8f6f1d9eb2d5")
+
+# retrieve info for all files in current user's collections
+# however this info is already in the data_frame returned by
+# zen_collections() so this is not a particularly efficient strategy
+my_files=with(zen_collections(), zen_file_retrieve(id, files.id))
 }
 }
 
