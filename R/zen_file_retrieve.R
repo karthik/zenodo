@@ -24,6 +24,11 @@
 #' }
 #' @export
 #' @importFrom dplyr as_data_frame
+#' @examples
+#' \dontrun{
+#' # retrieve info for single file
+#' zen_file_retrieve(29766, "d98a9e02-c9df-4e4a-b643-8f6f1d9eb2d5")
+#' }
 zen_file_retrieve<-function(deposition.id, file.id, ...) {
   path=paste0('api/deposit/depositions/',deposition.id,'/files/',file.id)
   response=zen_fetch(path, ...)
