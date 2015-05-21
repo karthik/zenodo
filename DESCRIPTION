@@ -1,7 +1,10 @@
 Package: zenodo
 Title: Programmatic Interface to the Zenodo Research Data Archive
 Version: 0.1.99
-Authors@R: person("Karthik", "Ram", , "karthik.ram@gmail.com", c("aut", "cre"))
+Authors@R: c(person("Karthik", "Ram", role = c("aut", "cre"),
+    email = "karthik.ram@gmail.com"),
+    person("Gregory", "Jefferis", role = "aut",
+    email = "jefferis@gmail.com"))
 Description: A full interface to the Zenodo API, includes support for uploading your research outputs.
 Depends: R (>= 3.2)
 License: MIT + file LICENSE
