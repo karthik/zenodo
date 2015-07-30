@@ -4,7 +4,7 @@
 \alias{zen_collections}
 \title{List Zenodo collections.}
 \usage{
-zen_collections(access_token = getOption("zenodo_token"))
+zen_collections(access_token = zen_pat())
 }
 \arguments{
 \item{access_token}{Your Zenodo access token}
