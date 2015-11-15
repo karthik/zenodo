@@ -4,10 +4,15 @@
 \alias{zen_collections}
 \title{List Zenodo collections.}
 \usage{
-zen_collections(access_token = getOption("zenodo_token"))
+zen_collections(...)
 }
 \arguments{
-\item{access_token}{Your Zenodo access token}
+\item{...}{Additional arguments passed to \code{\link{zen_fetch}} to define
+request, authorisation or parsing options.}
+}
+\value{
+a data.frame (with class \code{dplyr::tbl_df}) containing metadata
+  about all existing collections for a user.
 }
 \description{
 List all depositions for the currently authenticated user. Collections
@@ -16,6 +21,20 @@ typically archive all outputs of a research project.
 \examples{
 \dontrun{
 my_collections <- zen_collections()
+
+library(dplyr)
+my_collections \%>\%
+  select(metadata.title, metadata.upload_type, metadata.doi, files.filename,
+    created)
+
+# example of parsing and plotting dates
+if(require(lubridate) && require(ggplot2)) {
+  my_collections <- mutate(my_collections, created=ymd_hms(created))
+  qplot(my_collections$created)
 }
+}
+}
+\seealso{
+\code{\link{zen_fetch}}
 }
 
