@@ -8,7 +8,7 @@
 #' @examples \dontrun{
 #' my_collections <- zen_collections()
 #' }
-zen_collections <- function(access_token = getOption('zenodo_token')) {
+zen_collections <- function(access_token = zen_pat()) {
   dir_path <- "https://zenodo.org/api/deposit/depositions"
   args <- as.list(c(access_token = access_token))
   results <- httr::GET(dir_path, query = args)
